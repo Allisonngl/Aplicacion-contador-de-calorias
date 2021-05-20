@@ -7,7 +7,6 @@
     <ion-title>CONFIGURAR DIETA</ion-title>
   </ion-toolbar>
 </ion-header>
-<br>
 
 <!-- ------------------ -->
 <!-- MODO CONFIGURACION -->
@@ -30,7 +29,7 @@
   </ion-item>
   <ion-item>
     <ion-checkbox style="margin-right: 10px" color="secondary" [(ngModel)]="Merienda_check"></ion-checkbox>
-    <ion-label>Merienda</ion-label>
+    <ion-label>Almuerzo</ion-label>
   </ion-item>
   <ion-item>
     <ion-checkbox style="margin-right: 10px" color="secondary" [(ngModel)]="Comida_check"></ion-checkbox>
@@ -38,7 +37,7 @@
   </ion-item>
   <ion-item>
     <ion-checkbox style="margin-right: 10px" color="secondary" [(ngModel)]="MediaComida_check"></ion-checkbox>
-    <ion-label>EntreComida</ion-label>
+    <ion-label>Merienda</ion-label>
   </ion-item>
   <ion-item>
     <ion-checkbox style="margin-right: 10px" color="secondary" [(ngModel)]="Cena_check"></ion-checkbox>
@@ -93,7 +92,7 @@
     <div *ngIf="Merienda_check">
 
       <ion-item>
-        <ion-label>Merienda</ion-label>
+        <ion-label>Almuerzo</ion-label>
         <ion-button color="secondary" slot="end" fill="outline" (click)="VerListaMerienda()">{{mensaje_boton_dos}}</ion-button>
         <ion-button color="secondary" slot="end" fill="outline" (click)="cambiarModoBuscar(1)">Agregar</ion-button>
       </ion-item>
@@ -135,7 +134,7 @@
     <div *ngIf="MediaComida_check">
     
       <ion-item>
-        <ion-label>Media Comida</ion-label>
+        <ion-label>Merienda</ion-label>
         <ion-button color="secondary" slot="end" fill="outline" (click)="VerListaEntrecomida()">{{mensaje_boton_cuatro}}</ion-button>
         <ion-button color="secondary" slot="end" fill="outline" (click)="cambiarModoBuscar(3)">Agregar</ion-button>
       </ion-item>

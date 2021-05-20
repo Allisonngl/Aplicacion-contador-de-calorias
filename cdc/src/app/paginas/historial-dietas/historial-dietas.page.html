@@ -24,12 +24,40 @@
         
           <ion-item color="primary">
             <ion-label class="ion-text-center" >
-          
-              <img height="250" width="250" class="immagen" src="assets/imagenes/dieta{{numeroDietaActual}}.jpg" />
+              
+              <ion-grid>
+                <ion-row>
+                <ion-col height="250" width="250" size="12" *ngFor="let photo of photos; index as position">
+                    <ion-img src="{{photo.base64 ? photo.base64 : photo.webviewPath}}" (click)="showActionSheet(photo, position)"></ion-img>
+                </ion-col>
+                </ion-row>
+              </ion-grid>          
             
             </ion-label>
-        
           </ion-item>
+          
+          <ion-item>
+            <ion-label>
+          <div>
+            <ion-fab style="margin-left: 200px" vertical="top" slot="fixed">
+            <ion-button (click)="newPhoto()">
+              <ion-icon name="camera"></ion-icon>
+            </ion-button>
+          </ion-fab>    
+          </div>
+        
+          <div>
+            <ion-fab style="margin-left: 50px" vertical="top" *ngFor="let photo of photos; let i = index">
+              <div>
+                <ion-button (click)="deleteTask(i)">
+                  <ion-icon name="trash"></ion-icon>
+                </ion-button>
+              </div>
+            </ion-fab>
+          </div>              
+            </ion-label>
+          </ion-item>
+
           <ion-item color="primary">
             <ion-label position="stacked">Calorias</ion-label>
             <p>{{cantidadCalorias[numeroDietaActual]}}</p>
@@ -55,4 +83,5 @@
     </div>
 
   </div>
+
 </ion-content>

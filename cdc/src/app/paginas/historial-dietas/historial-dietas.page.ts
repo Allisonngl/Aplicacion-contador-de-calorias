@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Photo } from 'src/app/interfaces/photo';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-historial-dietas',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialDietasPage implements OnInit {
 
-  constructor() { }
+  public photo: Photo[]=[];
+  photos: Photo[];
+  
+  constructor(private photoSvc: PhotoService) { 
+  }
 
-  ngOnInit() {
+   async ngOnInit() {
+    this.photoSvc.loadSaved().then(() => {
+      this.photos = this.photoSvc.getPhotos();
+    });
+  }   
+  
+    public newPhoto(): void{
+    this.photoSvc.addNewToGallery()
   }
 
   totalDietasCreadas: number = 2;
@@ -32,5 +45,10 @@ export class HistorialDietasPage implements OnInit {
       this.numeroDietaActual = 0;
     else
       this.numeroDietaActual++;
+  }
+
+  deleteTask(index){
+    this.photos.splice(index, 1);
+
   }
 }
