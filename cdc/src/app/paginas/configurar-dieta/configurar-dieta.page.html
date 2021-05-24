@@ -177,10 +177,35 @@
   <br>
   <ion-row>
     <ion-col size="10" offset="1">
+      <ion-button color="secondary" *ngIf="modo_Comidas" (click)="GuardarDieta()">Guarda</ion-button> 
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="10" offset="1">
       <ion-button *ngIf="modo_Comidas" (click)="cambiarModoConfiguracion()" expand="full" color="secondary" shape="round" class="btn-primary">Regresar</ion-button> 
     </ion-col>
   </ion-row>
-  
+
+      <!--<ion-list>
+        <ion-list-header>
+          Songs
+        </ion-list-header>
+      
+        <ion-item lines="inset" *ngFor="let data of Data">
+          <ion-label>
+            <h5>|{{data.nombre_dieta}}|{{data.calorias_total}}|</h5>
+            <p>|{{data.comida}}|{{data.alimentoNombre}}|{{data.calorias}}</p>
+            <p>|{{data.cantidad}}|{{data.fecha}}|</p>
+            
+          </ion-label>
+      
+          <div class="item-note" item-end>
+            <ion-icon name="create" style="zoom:2.0" [routerLink]="['/song/', data.id]"></ion-icon>
+            <ion-icon name="trash" style="zoom:2.0" (click)="deleteSong(data.id)"></ion-icon>
+          </div>
+        </ion-item>
+      </ion-list>-->
+
 </ion-content>
 
 <!-- ------------------- -->
